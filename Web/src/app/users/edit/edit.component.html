@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="saveUser()">
+    <mat-dialog-content>  
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput placeholder="Nombre(s)" formControlName="name">
+          <mat-error class="error">Campo requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Usuario" formControlName="username">
+          <mat-error class="error">Campo requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Correo electronico" formControlName="email" nospaces>
+          <mat-error class="error">Campo requerido</mat-error>
+        </mat-form-field> 
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-stroked-button type="button" color="warn" mat-dialog-close>Cancelar</button>
+      <button mat-stroked-button type="submit" [disabled]="!form.valid" color="primary">
+        <div>Guardar</div>
+      </button>
+    </mat-dialog-actions>
+  </form>
